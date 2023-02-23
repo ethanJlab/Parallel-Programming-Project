@@ -5,6 +5,9 @@
   - test this function with multiple values, get the time and final output
   - output will be standardised to ease data analysis
 
+- Create "naive approach w/ multithreading" function for fib
+  - test time and output
+
 - Create "memoization" function for fib
   - test time and output
   
