@@ -4,8 +4,6 @@
 #include <ctime>
 #include <fstream>
 
-
-
 // for this only test up to 50 elements of the fib sequence
 
 void testingSuite(long long n);
