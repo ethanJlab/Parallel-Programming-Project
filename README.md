@@ -1,6 +1,6 @@
 # Parallel-Programming-Project
 
-##How to run
+## How to run
 - For each program run the command ``` g++ -o <name of executable>  <name of file>.cpp ``` to compile the source code
 - Run the executable with the command ``` .\<name of executable>.exe ```
 
