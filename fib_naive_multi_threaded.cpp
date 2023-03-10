@@ -4,6 +4,7 @@
 #include <ctime>
 #include <fstream>
 #include <thread>
+#include <future>
 
 void testingSuite(long long n);
 long long fib(long long n);
@@ -34,12 +35,12 @@ int main() {
 }
 
 long long fib(long long n) {
-    thread t1;
-    thread t2;
+    thread t1 = thread(fib,n-1);
+    thread t2 = thread(fib,n-2);
     if (n <=1) {
         return n;
     }
-    return t1(fib,n-1) + t2(fib,n-2);    
+    return t1.join() + t2.join();    
 }
 
 void testingSuite(long long n) {
