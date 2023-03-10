@@ -8,7 +8,7 @@
 - [ ] Create "naive approach w/ multithreading" function for fib 
   - test time and output
 
-- [ ] Create "memoization" function for fib 
+- [X] Create "memoization" function for fib 
   - test time and output
   
 - [ ] Create "memoization w/ multithreading" function for fib 
