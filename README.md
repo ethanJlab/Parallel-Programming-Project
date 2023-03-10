@@ -17,8 +17,8 @@
 - [ ] Create "Dynamic Programming" function for fib 
   - test time and output
   
-- [ ] Create "Fib with matrix" function for fib 
+- [X] Create "Fib with matrix" function for fib 
   - test time and output
 
-- [X] Create "Fib matrix with multi-threading" function
+- [ ] Create "Fib matrix with multi-threading" function
   - test time and output
