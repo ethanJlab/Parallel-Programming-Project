@@ -26,3 +26,7 @@
 
 - [ ] Create "Fib matrix with multi-threading" function
   - test time and output
+
+- [ ] Implement data structure to handle larger integers
+
+- [ ] rerun tests with larger numbers
