@@ -14,9 +14,6 @@
 
 - [X] Create "memoization" function for fib 
   - test time and output
-  
-- [ ] Create "memoization w/ multithreading" function for fib 
-  - test time and output
 
 - [X] Create "Dynamic Programming" function for fib 
   - test time and output
