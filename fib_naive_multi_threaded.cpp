@@ -5,21 +5,27 @@
 #include <fstream>
 #include <thread>
 #include <future>
+#include <cstdlib>
+
+using namespace std;
 
 void testingSuite(long long n);
 long long fib(long long n);
 long long checkFibonacciNumber(long long n);
+long long multithreadedFib(long long n);
 
-bool printTOCSV = false;
-long long maxFib = 45;
+bool printTOCSV = true;
+long long maxFib = 60;
 
-using namespace std;
 
+
+//main
 int main() {
     if (printTOCSV) {
         std::ofstream myfile;
-        myfile.open("fib_naive.csv");
+        myfile.open("fib_naive_multithreaded.csv");
         myfile << "Num,Time" << endl;
+        cout << "Num,Time" << endl;
     }
     else {
         cout << "Num,Time" << endl;
@@ -32,27 +38,35 @@ int main() {
     }
     
     return 0;
+    
 }
 
-long long fib(long long n) {
-    thread t1 = thread(fib,n-1);
-    thread t2 = thread(fib,n-2);
-    if (n <=1) {
+long long multithreadedFib(long long n) {
+    if (n <= 1) {
         return n;
     }
-    return t1.join() + t2.join();    
+    auto f1 = std::async(std::launch::async, fib, n-1);
+    auto f2 = std::async(std::launch::async, fib, n-2);
+    return f1.get() + f2.get();
 }
+long long fib(long long n) {
+    if (n <= 1) {
+        return n;
+    }
+    return fib(n-1) + fib(n-2);
+}
+
 
 void testingSuite(long long n) {
     time_t start,end;
     time(&start);
-    assert(fib(n) == checkFibonacciNumber(n));
+    assert(multithreadedFib(n) == checkFibonacciNumber(n));
     time(&end);
     double time_taken = double (end-start);
 
     if(printTOCSV) {
         std::ofstream myfile;
-        myfile.open("fib_naive.csv", std::ios_base::app);
+        myfile.open("fib_naive_multithreaded.csv", std::ios_base::app);
         myfile << n << "," << time_taken << setprecision(5) << endl;
     }
     else {
